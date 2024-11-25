@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Classification Tool</title>
+    <link rel="stylesheet" href="./taskpane.css">
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+  </head>
+<body>
+    <div id="settingsContainer" class="hidden">
+        <button id="settingsButton" title="Settings">
+            <i class="fas fa-cog"></i>
+        </button>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span id="closeSettings" class="close">&times;</span>
+            <h2>Settings</h2>
+            <form id="settingsForm">
+                <label for="apiKey">API Key:</label>
+                <input type="text" id="apiKey" placeholder="Enter API Key" required>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Form Section -->
+    <div id="mainFormSection">
+        <h1>Data Classification Tool</h1>
+        <form id="classificationForm">
+            <label for="inputRange">Input Range (Items to Classify):</label>
+            <div>
+                <input type="text" id="inputRange" placeholder="Select a range in Excel or enter manually">
+                <button type="button" id="selectRangeButton">Select Range</button>
+            </div>
+            <br>
+
+            <label for="categories">Categories:</label>
+            <div>
+                <input type="text" id="categories" placeholder="Enter categories (e.g., A, B, C) or select from Excel">
+                <button type="button" id="selectCategoriesButton">Select Categories</button>
+            </div>
+            <br>
+
+            <label for="instructions">Additional Instructions:</label>
+            <textarea id="instructions" placeholder="Enter any additional instructions" rows="4"></textarea>
+            <br>
+
+            <button type="submit">Run Analysis</button>
+        </form>
+        <div id="notification" style="display: none; padding: 10px; margin-top: 10px; background-color: #f8d7da; color: #721c24; border-radius: 4px;">
+            <span id="notificationMessage"></span>
+        </div>
+        <!-- <div id="result"></div> -->
+    </div>
+
+    <script src="./taskpane.js"></script>
+</body>
+</html>
